@@ -1,31 +1,45 @@
-False Identities Interactive App (scaffold)
+# False Identities
 
-What's included
-- Next.js (App Router) website scaffold
-- JSON schema + dataset skeleton for the 21 false identities
-- Identity library search + filters + detail pages
-- "Uncovering Your False Identity" AI-guided exercise
-- AI-assisted helper endpoint stub (bring your own OpenAI key)
-- PDF extraction script stub that *only* runs if you have licensed permission to reproduce text
+An interactive web app to explore the 21 false identities, search and filter the library, and work through a guided reflection exercise.
 
-Important
-- This zip does NOT include any word-for-word content from the source PDF.
-- To ship a production app that contains the PDF text verbatim, you must have written permission / licensing from the rights holder.
-  Once you have that, you can populate `content/false_identities.json` (or generate it via `npm run extract:pdf` after placing the PDF in `content/source.pdf`).
+## Features
+- Searchable identity library with filters and detail pages
+- "Uncovering Your False Identity" guided exercise
+- Optional AI helper (requires an OpenAI API key)
+- Optional PDF import script for licensed source material
 
-Quick start
-1) Install deps:
-   npm i
-2) Run dev:
+## Requirements
+- Node.js 18+ and npm
+
+## Quick start
+1) Install dependencies:
+   npm install
+2) Set env vars:
+   copy `.env.local.example` to `.env.local` and fill values
+3) Run the app:
    npm run dev
-3) Add content:
-   - Option A: Manually paste licensed text into `content/false_identities.json` following `content/schema.json`.
-   - Option B: Put the licensed PDF at `content/source.pdf` and adapt `scripts/extract_from_pdf.py` to your PDF layout, then:
-     npm run extract:pdf
+4) Open http://localhost:3000
 
-Environment variables
-- Copy `.env.local.example` to `.env.local` and fill values.
+## Content
+This project does not include the original book text. You must have rights to use any source material you import.
 
-Deploy
-- Vercel: import repo, set env vars, deploy.
+Add or update the dataset:
+- Option A: Manually edit `content/false_identities.json` using `content/schema.json` as the guide.
+- Option B: Place a licensed PDF at `content/source.pdf`, adjust `scripts/extract_from_pdf.py` to the layout, then run:
+  npm run extract:pdf
+
+## Environment variables
+- OPENAI_API_KEY: required only for the AI helper
+- OPENAI_MODEL: model name (default in `.env.local.example`)
+- NEXT_PUBLIC_SITE_URL: the public URL of the site
+
+## Scripts
+- npm run dev
+- npm run build
+- npm run start
+- npm run lint
+- npm run extract:pdf
+
+## Deploy
+- Vercel: import the repo, set env vars, deploy.
 - Any Node host: npm run build && npm start
