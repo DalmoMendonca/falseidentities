@@ -1,0 +1,11 @@
+[build]
+command = "npm run build"
+publish = ".next"
+
+[[plugins]]
+package = "@netlify/plugin-nextjs"
+
+[build.environment]
+NPM_CONFIG_FETCH_RETRIES = "5"
+NPM_CONFIG_FETCH_RETRY_MINTIMEOUT = "20000"
+NPM_CONFIG_FETCH_RETRY_MAXTIMEOUT = "120000"

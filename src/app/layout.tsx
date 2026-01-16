@@ -3,8 +3,10 @@ import Image from "next/image";
 import "./globals.css";
 import logo from "../logo.png";
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? process.env.URL ?? "http://localhost:3000";
+
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"),
+  metadataBase: new URL(siteUrl),
   title: {
     default: "False Identities",
     template: "%s | False Identities"
