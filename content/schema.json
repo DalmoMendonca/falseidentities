@@ -1,0 +1,158 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "FalseIdentityDataset",
+  "type": "object",
+  "required": [
+    "falseIdentities",
+    "version"
+  ],
+  "properties": {
+    "version": {
+      "type": "string"
+    },
+    "falseIdentities": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/FalseIdentity"
+      }
+    }
+  },
+  "$defs": {
+    "FalseIdentity": {
+      "type": "object",
+      "required": [
+        "id",
+        "title",
+        "aka",
+        "trueIdentity",
+        "sections",
+        "tags",
+        "relatedIds",
+        "authoring"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "aka": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "trueIdentity": {
+          "type": "string"
+        },
+        "sections": {
+          "type": "object",
+          "required": [
+            "howItShowsUp",
+            "effectOnOthers",
+            "beliefsAboutOthers",
+            "beliefsAboutLife",
+            "selfReinforcingBehaviors",
+            "skillsToCultivate",
+            "gifts",
+            "deeperTruthStatements"
+          ],
+          "properties": {
+            "howItShowsUp": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "effectOnOthers": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "beliefsAboutOthers": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "beliefsAboutLife": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "selfReinforcingBehaviors": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "skillsToCultivate": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "gifts": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "deeperTruthStatements": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "relatedIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "sources": {
+          "type": "object",
+          "properties": {
+            "pdfPageStart": {
+              "type": "integer"
+            },
+            "pdfPageEnd": {
+              "type": "integer"
+            }
+          }
+        },
+        "authoring": {
+          "type": "object",
+          "required": [
+            "licenseStatus",
+            "lastUpdated"
+          ],
+          "properties": {
+            "licenseStatus": {
+              "type": "string",
+              "enum": [
+                "licensed",
+                "paraphrased",
+                "userNotesOnly"
+              ]
+            },
+            "lastUpdated": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}
